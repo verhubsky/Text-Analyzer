@@ -1,49 +1,34 @@
 import sys
 
-words = input("Enter words, for ex. 'I love cookies'\n>>> ").strip().split()
+from utils import count_words, count_unique_words, search_top, search_the_longest_word, calculate_average_word_length
+
+words = input("Enter words, for ex. 'I love cookies'\n>>> ")
 
 # (!!!)
 if not words:
     print('No words entered.')
     sys.exit()
 
+# Screen
+line = "-" * 23
+print(line)
+print('| Text-Analyzer v0.1  |')
+print(line)
 
 # 1. (& 5.) Count how many times each word appears
-seen = {}
-avg_length_list = []
-
-for word in words:
-    if word not in seen:
-        seen[word] = 1
-        avg_length_list.append(len(word))
-    else:
-        seen[word] += 1
-
-print("1) Words:", len(words))
-
+print("1) Words:", count_words(words))
 
 # 2. Count how many unique words we have
-unique_words = list(seen.keys())
-print("2) Unique words:", len(unique_words))
-
+print("2) Unique:", count_unique_words(words))
 
 # 3. Creating table of Top-5 words
 i = 0
-print("3) Top-5 words:")
-for k, v in sorted(seen.items(), key=lambda item: item[1], reverse=True):
-    i += 1
-
-    print(f" {i}. {k} ({v})")
-
-    if i == 5:
-        break
-
+print("3) Top-5:")
+for i, value in enumerate(search_top(words)):
+    print(f" {i + 1}. {value[0]} ({value[1]})")
 
 # 4. Searching for longest word
-longest_word = max(unique_words, key=len)
-print("4) Longest word:", longest_word)
-
+print("4) Longest:", search_the_longest_word(words))
 
 # 5. Calculating average word length
-avg_length = int(sum(avg_length_list) / len(avg_length_list))
-print("5) Average word length:", avg_length)
+print("5) Average length:", calculate_average_word_length(words))
