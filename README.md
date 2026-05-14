@@ -1,7 +1,7 @@
-# Text-Analyzer v0.1
+# Text-Analyzer v0.2
 
 ## Обновление:
-Логика валидации вынесены в отдельный блок. Проект разделен на модули.
+Форматирование вывода вынесено в отдельный модуль. Изменена логика и формат запуска программы
 
 ## 📘 1. Краткое Описание:
 
@@ -38,11 +38,11 @@ python main.py
 Пример работы скрипта:
 
 ```text
-Enter words, for ex. 'I love cookies'
->>> I love cookies
 -----------------------
 | Text-Analyzer v0.1  |
 -----------------------
+Enter words, for ex. 'I love cookies'
+>>> I love cookies
 1) Words: 3
 2) Unique: 3
 3) Top-5:
@@ -51,7 +51,6 @@ Enter words, for ex. 'I love cookies'
  3. cookies (1)
 4) Longest: cookies
 5) Average length: 4
-
 ```
 
 
